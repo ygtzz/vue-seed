@@ -57,8 +57,21 @@ module.exports = {
             {test: /\.(js|jsx|es)$/, loader: "babel", exclude: /node_modules/},
             {test: /\.css$/, loader: extractCss.extract('style','css')},
             {test: /\.scss$/, loader: extractCss.extract('css!sass')},
-            {test: /\.(jpg|png|gif)$/, loader: "url?limit=8192"},
-            { test: /\.(html|tpl)$/, loader: 'html-loader' }          
+            {test: /\.(html|tpl)$/, loader: 'html-loader'},
+            {
+                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                loader: 'url',
+                query: {
+                    limit: 10000
+                }
+            },
+            {
+                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+                loader: 'url',
+                query: {
+                    limit: 10000
+                }
+            }
         ]
     },
     resolve:{
