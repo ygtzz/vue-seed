@@ -6,19 +6,16 @@ import Notfound from 'pages/error/notfound';
 
 Vue.use(VueRouter);
 
-var router = new VueRouter();
-
-router.map({
-    '/p/:article_id': {
-        name: 'article',
-        component: Article
-    },
-    'error/notfound': {
-        component: Notfound
-    },
-    '/:type/:cate': {
-        component: Trend
-    }
+var router = new VueRouter({
+    mode:'hash',
+    routes: [
+        { path: '/', component: Trend },
+        { path: '/p/:article_id', component: Article, name:'article'},
+        { path: '/error/notfound', component: Notfound },
+        { path: '/:type/:cate', component: Trend},
+        { path: '/', redirect: '/hot/now'},
+        { path: '*', redirect: '/error/notfound'}
+    ]
 });
 
 export default router;

@@ -1,29 +1,38 @@
 import Vue from 'vue';
-import marked from "widget/marked/marked";
+import { mapGetters, mapActions } from 'vuex';
+import marked from "marked";
 import actions from 'vuex/actions';
 import './article.css';
 
 export default Vue.extend({
+    name:'atrilce',
     template: require('./article.html'),
-    vuex: {
-        getters: {
-            article: function(state){
-                return state.article.article;
-            },
-            articleId: function(state){
-                return state.route.params['article_id'];
-            }
-        },
-        actions:{
-            fGetArticleDetail: actions.fGetArticleDetail
-        }
+    created(){
+        this.fGetData();
     },
-    route:{
-        data:function(){
-            this.fGetArticleDetail(this.articleId); 
+    watch: {
+        '$route': 'fGetData'
+    },
+    computed:{
+        article:function(){
+            return this.$store.getters.article;
+        },
+        articleContent:function(){
+            return marked(this.article.content || '');
+        },
+        articleId:function(){
+            return this.$route.params['article_id'];
         }
     },
     filters: {
         marked: marked
+    },
+    methods:{
+        ...mapActions({
+            fGetArticleDetail:'fGetArticleDetail'
+        }),
+        fGetData(){
+            this.fGetArticleDetail(this.articleId);
+        }
     }
 });

@@ -76,7 +76,10 @@ module.exports = {
     },
     resolve:{
         modulesDirectories: [ "node_modules",sBase,sBase+"pages", sBase+"widget",sBase+"vuex",sBase+'mock'],
-        extensions:['','.jsx','.js','.json','.es']
+        extensions:['','.jsx','.js','.json','.es'],
+        alias: {
+            'vue': 'vue/dist/vue.js'
+        }
     },
     // externals:{
     //     'react': 'window.React',

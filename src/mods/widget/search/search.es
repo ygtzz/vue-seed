@@ -1,23 +1,25 @@
 
 import Vue from "vue";
+import { mapGetters, mapActions } from 'vuex';
 import actions from 'vuex/actions';
 import './search.css';
 
 export default Vue.component("c-search", {
+    name:'search',
     template: require('./search.html'),
     data: function(){
     	return {
     		search:''
     	};
     },
-	vuex: {
-        actions:{
-            fSearchArticles: actions.fSearchArticles
-        }
+    methods:{
+        ...mapActions({
+            fSearchArticles:'fSearchArticles',
+            fGetArticleList:'fGetArticleList'
+        })
     },
     watch:{
-    	'search': function(val,oldVal) {
-			console.log('search ' + val);
+    	search: function(val,oldVal) {
     		this.fSearchArticles(val);
     	}
     }

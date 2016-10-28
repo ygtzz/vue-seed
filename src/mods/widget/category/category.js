@@ -3,15 +3,14 @@ import Vue from "vue";
 import './category.css';
 
 export default Vue.component("c-category", {
+    name:'category',
     template: require('./category.html'),
-    vuex: {
-        getters: {
-            type: function(state){
-                return state.route.params['type'];
-            },
-            cates: function(state){
-                return state.trend.cates;
-            }
+    computed: {
+        cates: function () {
+            return this.$store.getters.cates;
+        },
+        type: function () {
+            return this.$route.params['type'];
         }
     }
 });

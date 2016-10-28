@@ -3,11 +3,11 @@ import types from './mutation-types';
 
 function fGetArticleDetail(store,id) {
     var article = service.getArticleDetail(id, function(article) {
-        store.dispatch(types['getArticleDetail'],article);
+        store.commit(types['getArticleDetail'],article);
     })
 }
 
-function fGetCateList(store,type,cate){
+function fGetCateList(store,{type,cate}){
     var cateList = {
         'hot' : [{
             'id' : 'now',
@@ -39,23 +39,22 @@ function fGetCateList(store,type,cate){
             'name' : '世间事'
         }]
     };
-
     var list  = cateList[type] || [];
     for (var i = 0; i < list.length; i++) {
         list[i]['active'] = list[i]['id'] == cate;
     };      
-    store.dispatch(types['getCateList'],list);
+    store.commit(types['getCateList'],list);
 }
 
-function fGetArticleList (store,type,cate) {
+function fGetArticleList (store,{type,cate}) {
     service.getArticleList(type,cate,function(articles){
-        store.dispatch(types['getArticleList'],articles);
+        store.commit(types['getArticleList'],articles);
     })
 }
 
 function fSearchArticles(store,keyword){
     service.searchArticles(keyword,function(articles){
-        store.dispatch(types['searchArticles'],articles);
+        store.commit(types['searchArticles'],articles);
     })
 }
 
