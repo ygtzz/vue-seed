@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import { sync } from 'vuex-router-sync';
-import store from 'vuex/store';
-import router from 'route/router';
+import store from './vuex/store';
+import router from './route/router';
 import footer from 'widget/footer/footer';
 
 var App = new Vue({

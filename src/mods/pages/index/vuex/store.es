@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import trend from 'modules/trend';
-import article from 'modules/article';
+import trend from './modules/trend';
+import article from './modules/article';
 import * as getters from './getters'
-import actions from 'actions';
+import actions from './actions';
 
 Vue.use(Vuex);
 

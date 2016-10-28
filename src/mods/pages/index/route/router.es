@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Trend from 'widget/trend/trend';
-import Article from 'widget/article/article';
+import Trend from '../widget/trend/trend';
+import Article from '../widget/article/article';
 import Notfound from 'pages/error/notfound';
 
 Vue.use(VueRouter);

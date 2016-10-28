@@ -1,7 +1,7 @@
 
 import Vue from "vue";
 import { mapGetters, mapActions } from 'vuex';
-import actions from 'vuex/actions';
+import actions from 'pages/index/vuex/actions';
 import './search.css';
 
 export default Vue.component("c-search", {

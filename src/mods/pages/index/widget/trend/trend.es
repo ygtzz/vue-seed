@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import { mapGetters, mapActions } from 'vuex';
-import actions from 'vuex/actions';
-import 'widget/category/category';
-import 'widget/list/list';
-import 'widget/search/search';
+import actions from 'pages/index/vuex/actions';
+import '../category/category';
+import '../list/list';
+import '../search/search';
 import './trend.scss';
 
 export default Vue.extend({
