@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Trend from 'pages/trend/trend';
+import Trend from 'widget/trend/trend';
 import Article from 'pages/article/article';
 import Notfound from 'pages/error/notfound';
 
