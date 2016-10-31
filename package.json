@@ -4,7 +4,7 @@
   "description": "a vue webpack template",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot --progress --colors --inline",
+    "start": "node build/dev.js",
     "build": "webpack --progress --colors",
     "dev": "npm run build && npm run start",
     "release": "node build/build.js",
@@ -50,6 +50,7 @@
     "ora": "^0.3.0",
     "path": "^0.12.7",
     "sass-loader": "^4.0.2",
+    "shelljs": "^0.7.5",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.3",

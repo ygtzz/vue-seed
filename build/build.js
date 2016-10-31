@@ -1,9 +1,12 @@
+require('shelljs/global');
 var webpack = require('webpack')
 var ora = require('ora');
 var webpackProConfig = require('./webpack.prod.conf');
 
 var spinner = ora('building for production...')
 spinner.start();
+
+rm('-rf','dist');
 
 webpack(webpackProConfig, function (err, stats) {
     spinner.stop();

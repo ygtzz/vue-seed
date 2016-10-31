@@ -11,7 +11,7 @@ module.exports = {
         home: sBase + 'pages/home/home.es',
     },
     output: {
-        path: './dist',
+        path: config.sDist,
         filename: '[name].js',
         chunkFilename: "[name].js"
     },
