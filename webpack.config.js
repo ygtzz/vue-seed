@@ -49,8 +49,8 @@ module.exports = {
             $: "jquery",
             "window.jQuery": "jquery"
         }),        
-		new webpack.HotModuleReplacementPlugin(),        
-        new webpack.NoErrorsPlugin()
+		new webpack.HotModuleReplacementPlugin()       
+        //new webpack.NoErrorsPlugin()
 	],
     module: {
         loaders: [
@@ -75,8 +75,11 @@ module.exports = {
         ]
     },
     resolve:{
-        modulesDirectories: [ "node_modules",sBase,sBase+"pages", sBase+"widget",sBase+"vuex",sBase+'mock'],
-        extensions:['','.jsx','.js','.json','.es']
+        modulesDirectories: [ "node_modules",sBase,sBase+"pages", sBase+"widget",sBase+'mock'],
+        extensions:['','.jsx','.js','.json','.es'],
+        alias: {
+            'vue': 'vue/dist/vue.js'
+        }
     },
     // externals:{
     //     'react': 'window.React',

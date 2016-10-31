@@ -1,7 +1,5 @@
 
-import Vue from "vue";
-
-Vue.filter('datetime', function (date) {
+export function datetime (date) {
     var now = +new Date;
     var text='';
     var distance = now - date;
@@ -15,4 +13,4 @@ Vue.filter('datetime', function (date) {
         text = "一年以前";
     }
     return text;
-})
+}
