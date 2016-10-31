@@ -3,7 +3,7 @@
 ###技术栈
 
 * vue(2.x)
-* vux
+* vuex
 * vue-router
 * vuex-router-sync
 * sass
