@@ -88,7 +88,10 @@ module.exports = {
     },
     resolve:{
         modulesDirectories: [ "node_modules",sBase,sBase+"pages", sBase+"widget",sBase+"vuex",sBase+'mock'],
-        extensions:['','.jsx','.js','.json','.es','.css','.scss']
+        extensions:['','.jsx','.js','.json','.es','.css','.scss'],
+        alias: {
+            'vue': 'vue/dist/vue.js'
+        }
     },
     devtool: 'cheap-module-source-map'
 };
