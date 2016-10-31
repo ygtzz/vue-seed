@@ -28,13 +28,11 @@ export default Vue.component("c-form", {
         this.$refs.ruleForm.resetFields();
       },
       handleSubmit(ev) {
-        console.log(this.$refs.ruleForm);
         this.$refs.ruleForm.validate((valid) => {
           if (valid) {
-            console.log(this.ruleForm);
             this.fSubmitFormData(this.ruleForm);
           } else {
-            console.log('error submit!!');
+            console.log('form error');
             return false;
           }
         });

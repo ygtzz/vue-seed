@@ -4,8 +4,8 @@ function fGetFormData(store,payLoad) {
     var oRuleForm = {
         name: 'test',
         region: 'beijing',
-        date1: '2016-10-11',
-        date2: '',
+        date1: new Date('2016/10/11'),
+        date2: new Date('2016/10/11 15:00:01'),
         delivery: true,
         type: ['地推活动','单纯品牌曝光'],
         resource: '线上品牌商赞助',
