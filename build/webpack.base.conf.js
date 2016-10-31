@@ -1,12 +1,6 @@
-var path = require('path');
 var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
-var extractCss = new ExtractTextPlugin('style/[name].css');
-
 var sBase = './src/mods/';
 
 module.exports = {
@@ -20,24 +14,6 @@ module.exports = {
         chunkFilename: "[name].js"
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            filename: 'index.html',
-			template: sBase + 'pages/index/index.html',
-            chunks: ['index'],
-            inject: 'body',
-            title: 'Index Page'
-		}),
-        new HtmlWebpackPlugin({
-            filename: 'home.html',
-			template: sBase + 'pages/home/home.html',
-            chunks: ['home'],
-            inject: 'body',
-            title: 'Home Page'
-		}),
-        new webpack.DefinePlugin({
-            __ENV__: JSON.stringify(process.env.NODE_ENV || 'dev')
-        }),
-        new OpenBrowserPlugin({ url: 'http://localhost:8080' }),
         new CopyWebpackPlugin([
             { from: 'src/static', to: 'static' },
         ]),
@@ -48,9 +24,7 @@ module.exports = {
         new webpack.ProvidePlugin({
             $: "jquery",
             "window.jQuery": "jquery"
-        }),        
-		new webpack.HotModuleReplacementPlugin()       
-        //new webpack.NoErrorsPlugin()
+        })
 	],
     module: {
         loaders: [
@@ -62,14 +36,16 @@ module.exports = {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
                 loader: 'url',
                 query: {
-                    limit: 10000
+                    limit: 10000,
+                    name: 'static/images/[name].[ext]'
                 }
             },
             {
                 test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
                 loader: 'url',
                 query: {
-                    limit: 10000
+                    limit: 10000,
+                    name:'static/fonts/[name].[ext]'
                 }
             }
         ]
@@ -80,17 +56,5 @@ module.exports = {
         alias: {
             'vue': 'vue/dist/vue.js'
         }
-    },
-    // externals:{
-    //     'react': 'window.React',
-    //     'jquery': 'window.jQuery'
-    // },
-    devtool: 'cheap-module-eval-source-map',   
-    devServer:{
-        contentBase: './dist',
-        historyApiFallback: true,
-        hot: true,
-        inline: true,
-        progress: true
     }
-};
+}
