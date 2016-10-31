@@ -1,7 +1,9 @@
 var webpack = require('webpack');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
-var sBase = './src/mods/';
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var config = require('./config');
+var sBase = config.sBase;
 
 module.exports = {
     entry: {
@@ -19,8 +21,7 @@ module.exports = {
         ]),
         new CleanWebpackPlugin(['dist'], {
             verbose: true
-        }),
-        extractCss,        
+        }),        
         new webpack.ProvidePlugin({
             $: "jquery",
             "window.jQuery": "jquery"
@@ -29,8 +30,8 @@ module.exports = {
     module: {
         loaders: [
             {test: /\.(js|jsx|es)$/, loader: "babel", exclude: /node_modules/},
-            {test: /\.css$/, loader: extractCss.extract('style','css')},
-            {test: /\.scss$/, loader: extractCss.extract('css!sass')},
+            {test: /\.css$/, loader: ExtractTextPlugin.extract('style','css')},
+            {test: /\.scss$/, loader: ExtractTextPlugin.extract('css!sass')},
             {test: /\.(html|tpl)$/, loader: 'html-loader'},
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

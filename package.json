@@ -7,7 +7,7 @@
     "start": "webpack-dev-server --hot --progress --colors --inline",
     "build": "webpack --progress --colors",
     "dev": "npm run build && npm run start",
-    "release": "webpack -p --config webpack.prod.config.js",
+    "release": "node build/build.js",
     "lint": "eslint 'src/**/*.@(js|jsx|es)'",
     "test": "echo \"Error: no test specified\" && exit 1",
     "bs": "cd dist && browser-sync start --server --files '**/*.html,**/*.js,**/*.css' --directory"
@@ -47,6 +47,7 @@
     "html-loader": "^0.4.4",
     "html-webpack-plugin": "^2.24.0",
     "open-browser-webpack-plugin": "0.0.2",
+    "ora": "^0.3.0",
     "path": "^0.12.7",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",

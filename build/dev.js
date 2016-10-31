@@ -1,4 +1,5 @@
-var webpack = require('webpack')
+var webpack = require('webpack');
+var webpackDevServer = require('webpack-dev-server');
 var prodConfig = require('./webpack.dev.conf');
 
 var spinner = ora('building for production...')
