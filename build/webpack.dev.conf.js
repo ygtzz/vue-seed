@@ -6,25 +6,27 @@ var merge = require('webpack-merge');
 var baseWebapckConfig = require('./webpack.base.conf');
 var config = require('./config');
 
-var plugins = [
+var aPlugin = [
     new ExtractTextPlugin('style/[name].css'),
     new OpenBrowserPlugin({ url: 'http://localhost:8080' }),
     new webpack.HotModuleReplacementPlugin()
     //new webpack.NoErrorsPlugin()
 ];
 
-var entry = baseWebapckConfig.entry;
-Object.keys(entry).forEach(function(item){
-       plugins.push(new HtmlWebpackPlugin({
-            filename: item + '.html',
-			template: config.sBase + 'pages/'+ item + '/' + item +'.html',
-            chunks: [item],
-            inject: 'body',
-            title: item + 'Page'
-		}));
+var oEntry = baseWebapckConfig.oEntry,
+    aEntry = Object.keys(entry);
+    
+aEntry.forEach(function(item){
+    aPlugin.push(new HtmlWebpackPlugin({
+        filename: item + '.html',
+        template: config.sBase + 'pages/' + item + '/' + item + '.html',
+        chunks: [item],
+        inject: 'body',
+        title: item + 'Page'
+    }));
 });
 
 module.exports = merge(baseWebapckConfig,{
-    plugins:plugins,
+    plugins: aPlugin,
     devtool: 'cheap-module-eval-source-map'
 });
