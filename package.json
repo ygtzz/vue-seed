@@ -29,7 +29,9 @@
   "dependencies": {
     "babel-preset-stage-0": "^6.16.0",
     "marked": "^0.3.6",
+    "mockjs": "^1.0.1-beta3",
     "vue": "^2.0.3",
+    "vue-resource": "^1.0.3",
     "vue-router": "^2.0.1",
     "vuex": "^2.0.0",
     "vuex-router-sync": "^3.0.0"

@@ -2,6 +2,8 @@ import Vue from 'vue';
 import { mapGetters, mapActions } from 'vuex';
 import Element from 'element-ui';
 import 'element-ui/lib/theme-default/index.css';
+import './form.scss';
+import loading from 'widget/loading/loading';
 
 Vue.use(Element);
 
@@ -12,6 +14,10 @@ export default Vue.component("c-form", {
         this.fGetFormData();
     },
     computed: {
+        loading: function(){
+           console.log('loading ' + this.$store.getters.loading);
+           return this.$store.getters.loading;
+        },
         ruleForm: function () {
             return this.$store.getters.ruleForm;
         },

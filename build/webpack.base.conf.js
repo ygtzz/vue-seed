@@ -21,10 +21,6 @@ module.exports = {
         ]),
         new CleanWebpackPlugin(['dist'], {
             verbose: true
-        }),        
-        new webpack.ProvidePlugin({
-            $: "jquery",
-            "window.jQuery": "jquery"
         })
 	],
     module: {

@@ -1,21 +1,40 @@
-import {GET_FORM,SUBMIT_FORM} from './mutation-types';
+import Vue from 'vue';
+import VueResource from 'vue-resource';
+import types from './mutation-types';
+import {fFormatUtcDate} from 'widget/util/util';
+import url from './url';
+import './mock';
+
+Vue.use(VueResource);
 
 function fGetFormData(store,payLoad) {
-    var oRuleForm = {
-        name: 'test',
-        region: 'beijing',
-        date1: new Date('2016/10/11'),
-        date2: new Date('2016/10/11 15:00:01'),
-        delivery: true,
-        type: ['地推活动','单纯品牌曝光'],
-        resource: '线上品牌商赞助',
-        desc: '活动形式'
-    };
-    store.commit(GET_FORM,oRuleForm);
+    store.commit(types['GET_FORM_START'],{loading:true});
+    Vue.http.get(url['get_data'],{
+        method:'GET'
+    }).then(function(res){
+        return res.json();
+    })
+    .then(function(json){
+        var data = json;
+        data.date1 = new Date(fFormatUtcDate(data.date1));
+        data.date2 = new Date(fFormatUtcDate(data.date2));
+        store.commit(types['GET_FORM_OK'],{loading:false,ruleForm:data});
+    },function(){
+        store.commit(types['GET_FORM_ERROR'],{loading:false});
+    });
 }
 
 function fSubmitFormData(store,payLoad){ 
-    store.commit(SUBMIT_FORM,payLoad);
+    store.commit(types['SUBMIT_FORM_START'],{loading:true});
+    Vue.http.get(url['submit_data'],{
+        method:'POST'
+    }).then(function(res){
+        console.log('submit response');
+        console.log(res);
+        store.commit(types['SUBMIT_FORM_OK'],{loading:false});
+    },function(){
+        store.commit(types['SUBMIT_FORM_ERROR'],{loading:false});
+    });
 }
 
 export default {

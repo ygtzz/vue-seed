@@ -2,12 +2,13 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import * as getters from './getters'
 import actions from './actions';
-import { GET_FORM, SUBMIT_FORM } from './mutation-types'
+import types from './mutation-types'
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
     state:{
+        loading:false,
         ruleForm: {
           name: '',
           region: '',
@@ -43,14 +44,32 @@ export default new Vuex.Store({
         }
     },
     mutations: {
-        [GET_FORM](state, payLoad) {
-            console.log('get form payLoad');
-            console.log(payLoad);
-            state.ruleForm = payLoad;
+        [types['GET_FORM_START']](state, payLoad) {
+            state.loading = payLoad.loading;
         },
-        [SUBMIT_FORM](state, payLoad) {
+        [types['GET_FORM_OK']](state, payLoad) {
+            console.log('get form ok');
+            console.log(payLoad);
+            state.ruleForm = payLoad.ruleForm;
+            state.loading = payLoad.loading;
+        },
+        [types['GET_FORM_ERROR']](state, payLoad) {
+            console.log('get form error');
+            state.loading = payLoad.loading;
+        },
+        [types['SUBMIT_FORM_START']](state, payLoad) {
+            state.loading = payLoad.loading;
+        },
+        [types['SUBMIT_FORM_OK']](state, payLoad) {
             console.log('submit form');
             console.log(payLoad);
+            setTimeout(function(){
+                state.loading = payLoad.loading;
+            },500);
+        },
+        [types['SUBMIT_FORM_ERROR']](state, payLoad) {
+            console.log('submit form error');
+            state.loading = payLoad.loading;
         }
     },
     actions,
