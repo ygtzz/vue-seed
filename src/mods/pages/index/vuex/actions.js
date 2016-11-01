@@ -1,5 +1,5 @@
-import service from 'mock/service';
 import types from './mutation-types';
+import service from './mock';
 
 function fGetArticleDetail(store,id) {
     var article = service.getArticleDetail(id, function(article) {

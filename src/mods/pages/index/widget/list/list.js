@@ -1,7 +1,6 @@
 
 import Vue from "vue";
 import { mapGetters, mapActions } from 'vuex';
-import service from "mock/service";
 import {datetime} from 'widget/filter/datetime';
 import './list.css';
 
