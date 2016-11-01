@@ -13,9 +13,9 @@ var aPlugin = [
     //new webpack.NoErrorsPlugin()
 ];
 
-var oEntry = baseWebapckConfig.oEntry,
-    aEntry = Object.keys(entry);
-    
+var oEntry = baseWebapckConfig.entry,
+    aEntry = Object.keys(oEntry);
+
 aEntry.forEach(function(item){
     aPlugin.push(new HtmlWebpackPlugin({
         filename: item + '.html',
