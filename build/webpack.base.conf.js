@@ -7,8 +7,8 @@ var sBase = config.sBase;
 
 module.exports = {
     entry: {
-        index: sBase + 'pages/index/index.es',
-        home: sBase + 'pages/home/home.es',
+        index: sBase + 'pages/index/index.js',
+        home: sBase + 'pages/home/home.js',
     },
     output: {
         path: config.sDist,
