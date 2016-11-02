@@ -8,6 +8,7 @@ var port = process.env.PORT || config.dev.port;
 var compiler = webpack(webpackDevConfig);
 
 var server = new webpackDevServer(compiler,{
+    publicPath: '/',    
     contentBase: config.sDist,
     historyApiFallback: false,
     hot:true,

@@ -18,10 +18,7 @@ module.exports = {
     plugins: [
         new CopyWebpackPlugin([
             { from: 'src/static', to: 'static' },
-        ]),
-        new CleanWebpackPlugin(['dist'], {
-            verbose: true
-        })
+        ])
 	],
     module: {
         loaders: [
@@ -35,7 +32,7 @@ module.exports = {
                 loader: 'url',
                 query: {
                     limit: 10000,
-                    name: 'static/images/[name].[hash:7].[ext]'
+                    name: '/static/images/[name].[ext]'
                 }
             },
             {
@@ -43,7 +40,7 @@ module.exports = {
                 loader: 'url',
                 query: {
                     limit: 10000,
-                    name:'static/fonts/[name].[hash:7].[ext]'
+                    name:'/static/fonts/[name].[ext]'
                 }
             }
         ]
