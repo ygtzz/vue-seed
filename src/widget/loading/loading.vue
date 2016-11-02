@@ -9,7 +9,6 @@
 
     export default Vue.component("c-loading", {
         className: 'c-loading',
-        template: require('./loading.html'),
         props: ['cLoading']
     });
 </script>
@@ -17,7 +16,7 @@
 <style lang="sass" scoped>
     $height:30px;
     $width:20px;
-
+    
     .c-loading{
         margin-top: 200px;
         width: $width;

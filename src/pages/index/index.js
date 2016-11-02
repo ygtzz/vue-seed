@@ -3,9 +3,9 @@ import VueRouter from 'vue-router';
 import { sync } from 'vuex-router-sync';
 import store from './vuex/store';
 import footer from 'widget/footer/footer';
-import Notfound from './widget/error/notfound';
 import Trend from './widget/trend/trend';
 import Article from './widget/article/article';
+import Notfound from './widget/error/notfound';
 
 Vue.config.debug = true;
 Vue.use(VueRouter);
