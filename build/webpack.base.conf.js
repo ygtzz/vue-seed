@@ -45,6 +45,12 @@ module.exports = {
             }
         ]
     },
+    vue: {
+        loaders: {
+            css: ExtractTextPlugin.extract("css"),
+            sass: ExtractTextPlugin.extract("css!sass")
+        }
+    },
     resolve:{
         modulesDirectories: [ "node_modules",sBase,sBase+"pages", sBase+"widget",sBase+'mock'],
         extensions:['','.jsx','.js','.json','.es'],

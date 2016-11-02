@@ -1,5 +1,5 @@
 <template lang="html">
-   <div :class="{'c-hidden': !cLoading}" class="c-loading">
+   <div :class="{'c-hidden': !loading}" class="c-loading">
 	    <img src="./img/loading.gif" alt="loading..." />
    </div>
 </template>
@@ -9,7 +9,7 @@
 
     export default Vue.component("c-loading", {
         className: 'c-loading',
-        props: ['cLoading']
+        props: ['loading']
     });
 </script>
 
