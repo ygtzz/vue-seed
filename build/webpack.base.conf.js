@@ -35,7 +35,7 @@ module.exports = {
                 loader: 'url',
                 query: {
                     limit: 10000,
-                    name: 'static/images/[name].[ext]'
+                    name: 'static/images/[name].[hash:7].[ext]'
                 }
             },
             {
@@ -43,7 +43,7 @@ module.exports = {
                 loader: 'url',
                 query: {
                     limit: 10000,
-                    name:'static/fonts/[name].[ext]'
+                    name:'static/fonts/[name].[hash:7].[ext]'
                 }
             }
         ]

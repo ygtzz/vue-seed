@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node build/dev.js",
+    "server": "node build/server.js",
     "release": "node build/build.js",
     "lint": "eslint 'src/**/*.@(js|jsx|es)'",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -48,7 +49,7 @@
     "html-loader": "^0.4.4",
     "html-webpack-plugin": "^2.24.0",
     "node-sass": "^3.10.1",
-    "open-browser-webpack-plugin": "0.0.2",
+    "opn": "^4.0.2",
     "ora": "^0.3.0",
     "path": "^0.12.7",
     "sass-loader": "^4.0.2",
@@ -58,6 +59,7 @@
     "vue-loader": "^9.7.0",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2",
+    "webpack-hot-middleware": "^2.13.1",
     "webpack-merge": "^0.15.0"
   }
 }

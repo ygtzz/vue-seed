@@ -1,14 +1,12 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 var merge = require('webpack-merge');
 var baseWebapckConfig = require('./webpack.base.conf');
 var config = require('./config');
 
 var aPlugin = [
     new ExtractTextPlugin('style/[name].css'),
-    new OpenBrowserPlugin({ url: 'http://localhost:8080' }),
     new webpack.HotModuleReplacementPlugin()
     //new webpack.NoErrorsPlugin()
 ];
