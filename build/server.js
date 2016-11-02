@@ -1,3 +1,4 @@
+require('shelljs/global');
 var path = require('path');
 var express = require('express');
 var webpack = require('webpack');
@@ -51,7 +52,7 @@ app.use(hotMiddleware);
 
 // serve pure static assets
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory);
-app.use(staticPath, express.static('./static'));
+app.use(staticPath, express.static('./src/static'));
 
 module.exports = app.listen(port, function (err) {
   if (err) {
