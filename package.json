@@ -5,8 +5,6 @@
   "main": "index.js",
   "scripts": {
     "start": "node build/dev.js",
-    "build": "webpack --progress --colors",
-    "dev": "npm run build && npm run start",
     "release": "node build/build.js",
     "lint": "eslint 'src/**/*.@(js|jsx|es)'",
     "test": "echo \"Error: no test specified\" && exit 1",
