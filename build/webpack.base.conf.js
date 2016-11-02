@@ -29,6 +29,7 @@ module.exports = {
             {test: /\.css$/, loader: ExtractTextPlugin.extract('style','css')},
             {test: /\.scss$/, loader: ExtractTextPlugin.extract('css!sass')},
             {test: /\.(html|tpl)$/, loader: 'html-loader'},
+            {test: /\.vue$/, loader: 'vue'},
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
                 loader: 'url',

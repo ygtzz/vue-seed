@@ -3,7 +3,7 @@ import { mapGetters, mapActions } from 'vuex';
 import Element from 'element-ui';
 import 'element-ui/lib/theme-default/index.css';
 import './form.scss';
-import loading from 'widget/loading/loading';
+import loading from 'widget/loading/loading.vue';
 
 Vue.use(Element);
 
