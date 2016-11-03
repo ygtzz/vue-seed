@@ -4,29 +4,28 @@ import { sync } from 'vuex-router-sync';
 import store from './vuex/store';
 import footer from 'widget/footer/footer';
 import Trend from './widget/trend/trend';
-import Article from './widget/article/article';
-import Notfound from './widget/error/notfound';
+// import Article from './widget/article/article';
+// import Notfound from './widget/error/notfound';
 
-Vue.config.debug = true;
 Vue.use(VueRouter);
 
 // const Trend = resolve => {
-//     require.ensure(['../widget/trend/trend'],() => {
-//         resolve(require('../widget/trend/trend'));
-//     });
+//     require.ensure(['./widget/trend/trend.vue'],() => {
+//         resolve(require('./widget/trend/trend.vue'));
+//     },'trend')
 // };
 
-// const Article = resolve => {
-//     require.ensure(['../widget/article/article'],() => {
-//         resolve(require('../widget/article/article'));
-//     })
-// };
+const Article = resolve => {
+    require.ensure(['./widget/article/article.vue'],() => {
+        resolve(require('./widget/article/article.vue'));
+    },'artilce')
+};
 
-// const Notfound = resolve => {
-//     require.ensure(['./widget/error/notfound'],() => {
-//         resolve(require('./widget/error/notfound'));
-//     })
-// };
+const Notfound = resolve => {
+    require.ensure(['./widget/error/notfound.vue'],() => {
+        resolve(require('./widget/error/notfound.vue'));
+    },'notfound')
+};
 
 const router = new VueRouter({
     mode:'hash',

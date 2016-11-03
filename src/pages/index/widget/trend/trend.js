@@ -8,8 +8,7 @@ import './trend.scss';
 
 export default Vue.extend({
     name:'trend',
-    inherit: true, //集成父元素所有属性
-    template: require('./trend.html'),
+    template:require('./trend.html'),
     created(){
         this.fGetData();
     },

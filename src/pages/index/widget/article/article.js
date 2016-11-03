@@ -4,9 +4,8 @@ import marked from "marked";
 import actions from 'pages/index/vuex/actions';
 import './article.css';
 
-export default Vue.extend({
+export default {
     name:'atrilce',
-    template: require('./article.html'),
     created(){
         this.fGetData();
     },
@@ -35,4 +34,4 @@ export default Vue.extend({
             this.fGetArticleDetail(this.articleId);
         }
     }
-});
+}

@@ -27,7 +27,7 @@ aEntry.forEach(function(item){
         template: config.sBase + 'pages/' + item + '/' + item + '.html',
         chunks: [item],
         inject: 'body',
-        title: item + 'Page'
+        title: item + ' Page'
     }));
 });
 
