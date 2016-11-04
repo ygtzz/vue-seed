@@ -1,0 +1,9 @@
+{
+  "name": "vue_a48ed18aacd30ea6f9de",
+  "content": {
+    "../github/webpack-vue-seed/node_modules/vue/dist/vue.js": 10,
+    "../github/webpack-vue-seed/node_modules/vuex/dist/vuex.js": 53,
+    "../github/webpack-vue-seed/node_modules/vue-router/dist/vue-router.js": 54,
+    "../github/webpack-vue-seed/node_modules/vuex-router-sync/index.js": 55
+  }
+}

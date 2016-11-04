@@ -9,6 +9,10 @@ var oEntry = baseWebapckConfig.entry,
     aEntry = Object.keys(oEntry);
 
 var aPlugin = [
+    new webpack.DllReferencePlugin({
+      context: '/dll',
+      manifest: require('../dll/vue-manifest.json'),
+    }),
     new webpack.optimize.CommonsChunkPlugin({
         name: 'common',
         chunks: aEntry,
