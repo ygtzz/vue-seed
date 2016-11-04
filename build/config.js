@@ -11,6 +11,11 @@ module.exports = {
         ele1: sBase + 'pages/ele1/ele1.js'
     },
     dev:{
+        proxy:{
+            '/form/getData':{
+                target: 'http://pre3.papayamobile.com:1299/shoptimize'
+            }
+        }
         env:'',
         port: 8080,
         assetsSubDirectory: 'static',

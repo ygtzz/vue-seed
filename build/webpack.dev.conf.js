@@ -40,6 +40,7 @@ module.exports = merge(baseWebapckConfig,{
         historyApiFallback: true,
         inline:             true,
         progress:           true,
-        colors:             true        
+        colors:             true,
+        proxy: config.dev.proxy  
     }
 });
