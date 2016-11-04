@@ -6,10 +6,7 @@ var config = require('./config');
 var sBase = config.sBase;
 
 module.exports = {
-    entry: {
-        index: sBase + 'pages/index/index.js',
-        home: sBase + 'pages/home/home.js',
-    },
+    entry: config.entry,
     output: {
         path: config.sDist,
         filename: '[name].js',
