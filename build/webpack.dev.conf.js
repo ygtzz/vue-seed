@@ -31,6 +31,7 @@ aEntry.forEach(function(item){
     }));
 });
 
+console.log(config.dev.proxy);
 
 module.exports = merge(baseWebapckConfig,{
     plugins: aPlugin,

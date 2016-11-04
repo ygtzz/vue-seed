@@ -13,7 +13,9 @@ module.exports = {
     dev:{
         proxy:{
             '/form/getData':{
-                target: 'http://pre3.papayamobile.com:1299/shoptimize'
+                target: 'http://localhost:3000',
+                secure: false,
+                pathRewrite: {'^/form/getData' : '/users'}
             }
         },
         env:'',
