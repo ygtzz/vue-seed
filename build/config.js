@@ -15,7 +15,7 @@ module.exports = {
             '/form/getData':{
                 target: 'http://pre3.papayamobile.com:1299/shoptimize'
             }
-        }
+        },
         env:'',
         port: 8080,
         assetsSubDirectory: 'static',
