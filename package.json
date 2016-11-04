@@ -4,10 +4,9 @@
   "description": "a vue webpack template",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot --progress --colors --inline",
-    "build": "webpack --progress --colors",
-    "dev": "npm run build && npm run start",
-    "release": "webpack -p --config webpack.prod.config.js",
+    "start": "webpack-dev-server --config ./build/webpack.dev.conf.js",
+    "release": "node build/build.js",
+    "server": "node build/server.js",
     "lint": "eslint 'src/**/*.@(js|jsx|es)'",
     "test": "echo \"Error: no test specified\" && exit 1",
     "bs": "cd dist && browser-sync start --server --files '**/*.html,**/*.js,**/*.css' --directory"
@@ -30,7 +29,9 @@
     "babel-preset-stage-0": "^6.16.0",
     "element-ui": "^1.0.0-rc.8",
     "marked": "^0.3.6",
+    "mockjs": "^1.0.1-beta3",
     "vue": "^2.0.3",
+    "vue-resource": "^1.0.3",
     "vue-router": "^2.0.1",
     "vuex": "^2.0.0",
     "vuex-router-sync": "^3.0.0"
@@ -49,11 +50,18 @@
     "html-webpack-plugin": "^2.24.0",
     "node-sass": "^3.10.1",
     "open-browser-webpack-plugin": "0.0.2",
+    "opn": "^4.0.2",
+    "ora": "^0.3.0",
     "path": "^0.12.7",
     "sass-loader": "^4.0.2",
+    "shelljs": "^0.7.5",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
+    "vue-loader": "^9.7.0",
     "webpack": "^1.13.3",
-    "webpack-dev-server": "^1.16.2"
+    "webpack-config": "^6.2.1",
+    "webpack-dev-server": "^1.16.2",
+    "webpack-hot-middleware": "^2.13.1",
+    "webpack-merge": "^0.15.0"
   }
 }
