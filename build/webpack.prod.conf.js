@@ -55,7 +55,7 @@ aEntry.forEach(function(item) {
 
 module.exports = merge(baseWebapckConfig, {
     entry: {
-        vendor: ['vue', 'vuex', 'vue-router', 'vuex-router-sync']
+        vendor: ['vue', 'vuex', 'vue-router', 'vuex-router-sync','vue-resource']
     },
     output: {
         path: './dist',
