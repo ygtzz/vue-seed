@@ -3,17 +3,17 @@ import VueRouter from 'vue-router';
 import { sync } from 'vuex-router-sync';
 import store from './vuex/store';
 import footer from 'widget/footer/footer';
-import Trend from './widget/trend/trend';
+//import Trend from './widget/trend/trend';
 // import Article from './widget/article/article';
 // import Notfound from './widget/error/notfound';
 
 Vue.use(VueRouter);
 
-// const Trend = resolve => {
-//     require.ensure(['./widget/trend/trend.vue'],() => {
-//         resolve(require('./widget/trend/trend.vue'));
-//     },'trend')
-// };
+const Trend = resolve => {
+    require.ensure(['./widget/trend/trend.vue'],() => {
+        resolve(require('./widget/trend/trend.vue'));
+    },'trend')
+};
 
 const Article = resolve => {
     require.ensure(['./widget/article/article.vue'],() => {

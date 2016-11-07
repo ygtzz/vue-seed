@@ -18,7 +18,9 @@ var aPlugin = [
         name: 'vendor',
         chunks: ['vendor', 'common']
     }),
-    new ExtractTextPlugin('/static/style/[name].[contenthash:8].css'),
+    new ExtractTextPlugin('/static/style/[name].[contenthash:8].css',{
+        allChunks: true
+    }),
     new webpack.DefinePlugin({
         'process.env': {
             'NODE_ENV': JSON.stringify('production')

@@ -8,7 +8,9 @@ var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 var aPlugin = [
     new OpenBrowserPlugin({ url: 'http://localhost:' + config.dev.port }),
-    new ExtractTextPlugin('style/[name].css'),
+    new ExtractTextPlugin('style/[name].css',{
+        allChunks:true
+    }),
     new webpack.DefinePlugin({
         'process.env': {
             'NODE_ENV': JSON.stringify('development')
@@ -30,8 +32,6 @@ aEntry.forEach(function(item){
         title: item + ' Page'
     }));
 });
-
-console.log(config.dev.proxy);
 
 module.exports = merge(baseWebapckConfig,{
     plugins: aPlugin,
