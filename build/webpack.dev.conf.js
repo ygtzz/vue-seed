@@ -12,9 +12,8 @@ var aPlugin = [
         allChunks:true
     }),
     new webpack.DefinePlugin({
-        'process.env': {
-            'NODE_ENV': JSON.stringify('development')
-        }
+        'process.env.NODE_ENV': JSON.stringify('development'),
+        __DEV__: JSON.stringify(JSON.parse('true'))
     }),
     new webpack.HotModuleReplacementPlugin()
     //new webpack.NoErrorsPlugin()
