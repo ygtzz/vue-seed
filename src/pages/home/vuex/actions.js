@@ -3,7 +3,10 @@ import VueResource from 'vue-resource';
 import types from './mutation-types';
 import {fFormatUtcDate} from 'widget/util/util';
 import url from './url';
-import './mock';
+
+if(__DEV__){
+    require('./mock');
+}
 
 Vue.use(VueResource);
 
