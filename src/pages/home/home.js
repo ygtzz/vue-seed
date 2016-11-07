@@ -3,6 +3,7 @@ import store from './vuex/store';
 import actions from 'pages/home/vuex/actions';
 import footer from 'widget/footer/footer';
 import form from './widget/form/form';
+import './home.css';
 
 var App = new Vue({
     store,

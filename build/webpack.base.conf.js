@@ -2,6 +2,7 @@ var webpack = require('webpack');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var autoprefixer = require('autoprefixer');
 var config = require('./config');
 var sBase = config.sBase;
 
@@ -15,13 +16,13 @@ module.exports = {
     plugins: [
         new CopyWebpackPlugin([
             { from: 'src/static', to: 'static' },
-        ])
+         ])
 	],
     module: {
         loaders: [
             {test: /\.(js|jsx|es)$/, loader: "babel", exclude: /node_modules/},
-            {test: /\.css$/, loader: ExtractTextPlugin.extract('style','css')},
-            {test: /\.scss$/, loader: ExtractTextPlugin.extract('css!sass')},
+            {test: /\.css$/, loader: ExtractTextPlugin.extract('style','css!postcss')},
+            {test: /\.scss$/, loader: ExtractTextPlugin.extract('css!postcss!sass')},
             {test: /\.(html|tpl)$/, loader: 'html-loader'},
             {test: /\.vue$/, loader: 'vue'},
             {
@@ -41,6 +42,9 @@ module.exports = {
                 }
             }
         ]
+    },
+    postcss: function () {
+        return [autoprefixer({browsers: ['> 5%','ie 9']})]
     },
     vue: {
         loaders: {
