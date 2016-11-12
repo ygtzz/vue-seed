@@ -23,7 +23,7 @@ module.exports = {
             {test: /\.(js|jsx|es)$/, loader: "babel", exclude: /node_modules/},
             {test: /\.css$/, loader: ExtractTextPlugin.extract('style','css!postcss')},
             {test: /\.scss$/, loader: ExtractTextPlugin.extract('css!postcss!sass')},
-            {test: /\.(html|tpl)$/, loader: 'html-loader'},
+            {test: /\.(html)$/, loader: 'html'},
             {test: /\.vue$/, loader: 'vue'},
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

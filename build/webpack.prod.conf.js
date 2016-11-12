@@ -1,6 +1,8 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var AssetsPlugin = require('assets-webpack-plugin');
+var ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
 var merge = require('webpack-merge');
 var baseWebapckConfig = require('./webpack.base.conf');
 var config = require('./config');
@@ -30,25 +32,31 @@ var aPlugin = [
             warnings: false
         }
     }),
-    new webpack.optimize.OccurenceOrderPlugin()
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new AssetsPlugin({
+      filename: 'map.json',
+      prettyPrint: true,
+      includeManifest: false
+    }),
+    new ChunkManifestPlugin({
+      filename: "chunk-manifest.json",
+      manifestVariable: "webpackManifest"
+    })
 ];
 
 //html webpack
 aEntry.forEach(function(item) {
     aPlugin.push(new HtmlWebpackPlugin({
         filename: item + '.html',
-        template: config.sBase + 'pages/' + item + '/' + item + '.html',
+        template: config.sBase + 'pages/' + item + '/' + item + '.ejs',
         chunks: [item, 'vendor', 'common'],
         inject: 'body',
         title: item + 'Page',
         minify: {
-            removeComments: true,
-            collapseWhitespace: true,
+            removeComments: false,
+            collapseWhitespace: false,
             removeAttributeQuotes: true
-            // more options:
-            // https://github.com/kangax/html-minifier#options-quick-reference
         },
-        // necessary to consistently work with multiple chunks via CommonsChunkPlugin
         chunksSortMode: 'dependency'
     }));
 });

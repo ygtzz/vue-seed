@@ -25,7 +25,7 @@ var oEntry = baseWebapckConfig.entry,
 aEntry.forEach(function(item){
     aPlugin.push(new HtmlWebpackPlugin({
         filename: item + '.html',
-        template: config.sBase + 'pages/' + item + '/' + item + '.html',
+        template: config.sBase + 'pages/' + item + '/' + item + '.ejs',
         chunks: [item],
         inject: 'body',
         title: item + ' Page'

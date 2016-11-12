@@ -5,6 +5,7 @@ var sBase = './src/';
 module.exports = {
     sBase: sBase,
     sDist: '/dist',
+    sDest: './dist',
     entry: {
         index: sBase + 'pages/index/index.js',
         home: sBase + 'pages/home/home.js',

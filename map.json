@@ -1,0 +1,30 @@
+{
+  "trend": {
+    "js": "/static/scripts/trend.445be6b7.js"
+  },
+  "vendor": {
+    "js": "/static/scripts/vendor.9f513163.js"
+  },
+  "artilce": {
+    "js": "/static/scripts/artilce.a4d704b9.js"
+  },
+  "notfound": {
+    "js": "/static/scripts/notfound.ca9fe882.js"
+  },
+  "ele": {
+    "js": "/static/scripts/ele.f7994308.js",
+    "css": "/static/style/ele.1cec86e6.css"
+  },
+  "home": {
+    "js": "/static/scripts/home.dd07e696.js",
+    "css": "/static/style/home.82b26ebd.css"
+  },
+  "index": {
+    "js": "/static/scripts/index.ad51c9cf.js",
+    "css": "/static/style/index.7f7b7747.css"
+  },
+  "common": {
+    "js": "/static/scripts/common.df76f9d8.js",
+    "css": "/static/style/common.b6bf3c53.css"
+  }
+}
