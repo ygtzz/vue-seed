@@ -1,3 +1,3 @@
-export const fFormatUtcDate = function(sUtcDateString){
+export function fFormatUtcDate(sUtcDateString){
     return sUtcDateString.replace('T',' ').replace('Z','').replace(/-/g,'/');
 }
