@@ -4,6 +4,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var AssetsPlugin = require('assets-webpack-plugin');
 var ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
 var merge = require('webpack-merge');
+var WebpackMd5Hash = require('webpack-md5-hash');
 var baseWebapckConfig = require('./webpack.base.conf');
 var config = require('./config');
 
@@ -41,7 +42,8 @@ var aPlugin = [
     new ChunkManifestPlugin({
       filename: "chunk-manifest.json",
       manifestVariable: "webpackManifest"
-    })
+    }),
+    new WebpackMd5Hash()
 ];
 
 //html webpack
@@ -70,6 +72,6 @@ module.exports = merge(baseWebapckConfig, {
         filename: '/static/scripts/[name].[chunkhash:8].js',
         chunkFilename: "/static/scripts/[name].[chunkhash:8].js"
     },
-    plugins: aPlugin,
-    devtool: 'cheap-module-source-map'
+    plugins: aPlugin
+    //devtool: 'cheap-module-source-map'
 });
