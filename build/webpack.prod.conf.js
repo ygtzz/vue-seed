@@ -72,6 +72,6 @@ module.exports = merge(baseWebapckConfig, {
         filename: '/static/scripts/[name].[chunkhash:8].js',
         chunkFilename: "/static/scripts/[name].[chunkhash:8].js"
     },
-    plugins: aPlugin
-    //devtool: 'cheap-module-source-map'
+    plugins: aPlugin,
+    devtool: 'cheap-module-source-map'
 });
