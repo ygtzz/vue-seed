@@ -19,9 +19,13 @@ module.exports = {
         assetsPublicPath: '/',
         proxyTable: {},
     },
-    build: {
-        env: '',
-        assetsSubDirectory: 'static',
-        assetsPublicPath: '/',
+    pre: {
+        
+    },
+    prod: {
+        path: {
+            script: '/static/scripts/',
+            style: '/static/style/'
+        }
     }
 }

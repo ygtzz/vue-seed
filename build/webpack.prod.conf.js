@@ -13,15 +13,10 @@ var oEntry = baseWebapckConfig.entry,
 
 var aPlugin = [
     new webpack.optimize.CommonsChunkPlugin({
-        name: 'common',
-        chunks: aEntry,
-        minChunks: 3
+        names: ['common','vendor'],
+        minChunks: 2
     }),
-    new webpack.optimize.CommonsChunkPlugin({
-        name: 'vendor',
-        chunks: ['vendor', 'common']
-    }),
-    new ExtractTextPlugin('/static/style/[name].[contenthash:8].css',{
+    new ExtractTextPlugin(config.prod.path.style + '[name].[contenthash:8].css',{
         allChunks: true
     }),
     new webpack.DefinePlugin({
@@ -35,7 +30,7 @@ var aPlugin = [
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new AssetsPlugin({
-      filename: 'map.json',
+      filename: config.sDest + '/map.json',
       prettyPrint: true,
       includeManifest: false
     }),
