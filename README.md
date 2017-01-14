@@ -1,21 +1,4 @@
-## webpack-vue-seed
+# app-maizuo
 
-###技术栈
-
-* vue(2.x)
-* vuex
-* vue-router
-* vuex-router-sync
-* sass
-* babel
-* element-ui
-
-###开始
-```bash
-dev: npm start
-
-prod: npm run release && npm run bs (depends browser-sync)
-
-```
-具体参见package.json的scripts
+模仿卖座app
 
